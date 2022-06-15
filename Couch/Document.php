@@ -383,7 +383,7 @@ class Document
       if (!isset($query['rev']) && !empty($this->rev)) {
          $query['rev'] = $this->rev;
       }
-
+      
       return $this->database->client->get($this->database->name .'/'. urlencode($this->id),
          $query)->getData();
    }

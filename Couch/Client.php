@@ -158,6 +158,8 @@ class Client
       // make request using http agent (sock or curl)
       $agent = $this->request->send();
 
+      $this->request = null;
+
       // assing self.request and return it
       return ($this->response = new Response($agent));
    }

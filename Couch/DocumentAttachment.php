@@ -357,12 +357,17 @@ class DocumentAttachment
    public function toArray($encode = true)
    {
       // read file first
-      $this->readFile($encode);
+
+       if (empty($this->data)) {
+           $this->readFile($encode);
+       }
 
       // set post data
       $array = [];
       $array['data'] = $this->data;
       $array['content_type'] = $this->contentType;
+
+      unset($this->data);
 
       return $array;
    }

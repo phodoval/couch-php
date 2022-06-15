@@ -119,7 +119,7 @@ abstract class Agent
       $headers =@ explode("\r\n", trim($headers));
 
       // extract status line
-      preg_match('~^HTTP/\d\.\d (\d+) ([\w- ]+)~i', array_shift($headers), $match);
+      preg_match('~^HTTP/\d\.\d (\d+) ([\w\- ]+)~i', array_shift($headers), $match);
 
       // set status stuff
       $statusCode = 0;

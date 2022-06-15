@@ -191,4 +191,11 @@ class Query
 
       return $this;
    }
+
+   public function attachments($bool)
+   {
+      $this->data['attachments'] = $bool;
+
+      return $this;
+   }
 }
