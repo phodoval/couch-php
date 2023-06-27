@@ -11,8 +11,7 @@
       "email": "k-gun@mail.com"
    }],
    "require": {
-      "php": ">=8.1.0",
-       "ext-json": "*"
+      "php": ">=5.4.0"
    },
    "autoload": {
       "classmap": ["Couch/"]

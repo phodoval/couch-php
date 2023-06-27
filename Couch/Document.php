@@ -103,9 +103,10 @@ class Document
    /**
     * JSON encoding method of JsonSerializable object.
     *
-    * @return mixed
+    * @return array
     */
-   public function jsonSerialize(): mixed {
+   public function jsonSerialize()
+   {
       return $this->data;
    }
 
