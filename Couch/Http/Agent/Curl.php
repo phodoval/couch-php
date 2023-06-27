@@ -120,7 +120,7 @@ class Curl
     */
    public function clean()
    {
-      if (is_resource($this->link)) {
+      if ($this->link instanceof CurlHandle) {
          curl_close($this->link);
          $this->link = null;
       }
