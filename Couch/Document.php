@@ -20,20 +20,20 @@
  */
 namespace Couch;
 
+use JsonSerializable;
+
 /**
  * @package    Couch
  * @object     Couch\Document
  * @implements JsonSerializable
  * @author     Kerem Güneş <k-gun@mail.com>
  */
-class Document
-    implements \JsonSerializable
-{
-    /**
-     * Document ID & document revision ID.
-     * @var string, string
-     */
-    private $id, $rev;
+class Document implements JsonSerializable {
+   /**
+    * Document ID & document revision ID.
+    * @var string, string
+    */
+   private $id, $rev;
 
     /**
      * Delete(d) flag.
@@ -100,15 +100,15 @@ class Document
         return $this->getData($key);
     }
 
-    /**
-     * JSON encoding method of JsonSerializable object.
-     *
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        return $this->data;
-    }
+   /**
+    * JSON encoding method of JsonSerializable object.
+    *
+    * @return mixed
+    */
+   public function jsonSerialize(): mixed
+   {
+      return $this->data;
+   }
 
     /**
      * Set document database.

@@ -20,15 +20,15 @@
  */
 namespace Couch;
 
+use JsonSerializable;
+
 /**
  * @package    Couch
  * @object     Couch\DocumentAttachment
  * @implements JsonSerializable
  * @author     Kerem Güneş <k-gun@mail.com>
  */
-class DocumentAttachment
-   implements \JsonSerializable
-{
+class DocumentAttachment implements JsonSerializable {
    /**
     * Owner document.
     * @var Couch\Document
@@ -123,9 +123,9 @@ class DocumentAttachment
    /**
     * JSON encoding method of JsonSerializable object.
     *
-    * @return array
+    * @return mixed
     */
-   public function jsonSerialize()
+   public function jsonSerialize(): mixed
    {
       return $this->toArray();
    }
