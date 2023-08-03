@@ -22,6 +22,7 @@ namespace Couch\Http\Agent;
 
 use Couch\Http\Request;
 use Couch\Http\Exception;
+use CurlHandle;
 
 /**
  * @package   Couch
@@ -49,7 +50,7 @@ class Curl
       }
 
       $this->link =@ curl_init($request->uri);
-      if (is_resource($this->link)) {
+      if ($this->link instanceof CurlHandle) {
          $headers = [];
          // for proper response headers/body pairs
          $headers[] = 'Expect: ';
