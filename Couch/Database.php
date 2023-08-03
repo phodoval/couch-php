@@ -20,17 +20,15 @@
  */
 namespace Couch;
 
-use Couch\Client;
-use Couch\Query;
 use Couch\Util\Util,
     Couch\Util\Property;
 
 /**
  * @package Couch
  * @object  Couch\Database
- * @uses    Couch\Client
- * @uses    Couch\Query
- * @uses    Couch\Util\Util,
+ * @uses    Client
+ * @uses    Query
+ * @uses    Util\Util,
  *          Couch\Util\Property
  * @author  Kerem Güneş <k-gun@mail.com>
  */
@@ -186,6 +184,18 @@ class Database
          // make a post request with given keys
          return $this->client->post($this->name .'/_all_docs', $query, ['keys' => $keys])->getData();
       }
+   }
+
+   public function findAll(Query|array|string $query) {
+       if ($query instanceof Query) {
+           $finalQuery = $query->toArray();
+       } elseif (is_string($query)) {
+           parse_str($query, $finalQuery);
+       } else {
+           $finalQuery = $query;
+       }
+
+       return $this->client->post($this->name .'/_find', body: $finalQuery)->getData();
    }
 
    /**
